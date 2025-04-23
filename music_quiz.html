@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🎵 Guess the Song Quiz</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #111;
+      color: #fff;
+      padding: 20px;
+    }
+    .card {
+      background: #222;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #000;
+    }
+    button {
+      margin: 10px 10px 0 0;
+      padding: 10px 15px;
+      border: none;
+      background: #4caf50;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .answer {
+      display: none;
+      margin-top: 10px;
+      color: #ffd700;
+      font-weight: bold;
+    }
+    .visualizer-container {
+      width: 100%;
+      height: 100px;
+      margin-top: 15px;
+      display: none;
+      background: #1a1a1a;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎧 Guess the Song!</h1>
+
+  <div class="card">
+    <audio id="audio1" src="songs/Britney Spears - Oops!... I Did It Again (Lyrics).mp3"></audio>
+    <button onclick="playClip('audio1', 'visualizer1')">▶️ Play Clip</button>
+    <button onclick="revealAnswer('answer1')">Reveal Answer</button>
+    <div id="answer1" class="answer">Britney Spears - Oops!... I Did It Again</div>
+    <div id="visualizer1" class="visualizer-container">
+      <canvas></canvas>
+    </div>
+  </div>
+
+  <div class="card">
+    <audio id="audio2" src="songs/Daakko Daakko Meka Full Video Song Pushpa Songs Allu Arjun, Rashmika  Sukumar  Telugu Mass Songs.mp3"></audio>
+    <button onclick="playClip('audio2', 'visualizer2')">▶️ Play Clip</button>
+    <button onclick="revealAnswer('answer2')">Reveal Answer</button>
+    <div id="answer2" class="answer">Daakko Daakko Meka - Pushpa Songs (Allu Arjun, Rashmika)</div>
+    <div id="visualizer2" class="visualizer-container">
+      <canvas></canvas>
+    </div>
+  </div>
+
+  <div class="card">
+    <audio id="audio3" src="songs/Evanescence - Bring Me To Life.mp3"></audio>
+    <button onclick="playClip('audio3', 'visualizer3')">▶️ Play Clip</button>
+    <button onclick="revealAnswer('answer3')">Reveal Answer</button>
+    <div id="answer3" class="answer">Evanescence - Bring Me To Life</div>
+    <div id="visualizer3" class="visualizer-container">
+      <canvas></canvas>
+    </div>
+  </div>
+
+  <div class="card">
+    <audio id="audio4" src="songs/Kallajodu College Papa Telugu Lyrics  MAD  Kalyan Shankar  S. Naga Vamsi  Bheems Ceciroleo.mp3"></audio>
+    <button onclick="playClip('audio4', 'visualizer4')">▶️ Play Clip</button>
+    <button onclick="revealAnswer('answer4')">Reveal Answer</button>
+    <div id="answer4" class="answer">Kallajodu College Papa - Kalyan Shankar, S. Naga Vamsi, Bheems Ceciroleo</div>
+    <div id="visualizer4" class="visualizer-container">
+      <canvas></canvas>
+    </div>
+  </div>
+
+  <div class="card">
+    <audio id="audio5" src="songs/Katy Perry - Firework (Lyrics).mp3"></audio>
+    <button onclick="playClip('audio5', 'visualizer5')">▶️ Play Clip</button>
+    <button onclick="revealAnswer('answer5')">Reveal Answer</button>
+    <div id="answer5" class="answer">Katy Perry - Firework</div>
+    <div id="visualizer5" class="visualizer-container">
+      <canvas></canvas>
+    </div>
+  </div>
+
+  <div class="card">
+    <audio id="audio6" src="songs/Linkin Park - In the End (Lyrics).mp3"></audio>
+    <button onclick="playClip('audio6', 'visualizer6')">▶️ Play Clip</button>
+    <button onclick="revealAnswer('answer6')">Reveal Answer</button>
+    <div id="answer6" class="answer">Linkin Park - In the End</div>
+    <div id="visualizer6" class="visualizer-container">
+      <canvas></canvas>
+    </div>
+  </div>
+
+  <div class="card">
+    <audio id="audio7" src="songs/Mark Ronson - Uptown Funk (Lyrics) ft. Bruno Mars.mp3"></audio>
+    <button onclick="playClip('audio7', 'visualizer7')">▶️ Play Clip</button>
+    <button onclick="revealAnswer('answer7')">Reveal Answer</button>
+    <div id="answer7" class="answer">Mark Ronson - Uptown Funk ft. Bruno Mars</div>
+    <div id="visualizer7" class="visualizer-container">
+      <canvas></canvas>
+    </div>
+  </div>
+
+  <div class="card">
+    <audio id="audio8" src="songs/Nirvana - Smells Like Teen Spirit (Lyrics).mp3"></audio>
+    <button onclick="playClip('audio8', 'visualizer8')">▶️ Play Clip</button>
+    <button onclick="revealAnswer('answer8')">Reveal Answer</button>
+    <div id="answer8" class="answer">Nirvana - Smells Like Teen Spirit</div>
+    <div id="visualizer8" class="visualizer-container">
+      <canvas></canvas>
+    </div>
+  </div>
+
+  <div class="card">
+    <audio id="audio9" src="songs/Ranjithame - Vaarasudu Telugu Lyrical song  Vijay Thalapathy  SS Thaman.mp3"></audio>
+    <button onclick="playClip('audio9', 'visualizer9')">▶️ Play Clip</button>
+    <button onclick="revealAnswer('answer9')">Reveal Answer</button>
+    <div id="answer9" class="answer">Ranjithame - Vaarasudu (Vijay Thalapatthy, SS Thaman)</div>
+    <div id="visualizer9" class="visualizer-container">
+      <canvas></canvas>
+    </div>
+  </div>
+
+  <div class="card">
+    <audio id="audio10" src="songs/RRR- Naatu Naatu Song (Lyrics) NTR, Ram Charan  M M Keeravaani  SS Rajamouli.mp3"></audio>
+    <button onclick="playClip('audio10', 'visualizer10')">▶️ Play Clip</button>
+    <button onclick="revealAnswer('answer10')">Reveal Answer</button>
+    <div id="answer10" class="answer">RRR - Naatu Naatu Song (NTR, Ram Charan, M M Keeravani, SS Rajamouli)</div>
+    <div id="visualizer10" class="visualizer-container">
+      <canvas></canvas>
+    </div>
+  </div>
+
+  <div class="card">
+    <audio id="audio11" src="songs/Saranga Dariya  Love Story (Lyric's).mp3"></audio>
+    <button onclick="playClip('audio11', 'visualizer11')">▶️ Play Clip</button>
+    <button onclick="revealAnswer('answer11')">Reveal Answer</button>
+    <div id="answer11" class="answer">Saranga Dariya - Love Story</div>
+    <div id="visualizer11" class="visualizer-container">
+      <canvas></canvas>
+    </div>
+  </div>
+
+  <div class="card">
+    <audio id="audio12" src="songs/Kya Mujhe Pyar Hai (LYRICS) Krishnakumar Kunnath (K.K), Pritam Chakraborty, Neelesh Misra, Woh Lamhe.mp3"></audio>
+    <button onclick="playClip('audio12', 'visualizer12')">▶️ Play Clip</button>
+    <button onclick="revealAnswer('answer12')">Reveal Answer</button>
+    <div id="answer12" class="answer">Kya Mujhe Pyar Hai - KK, Pritam Chakraborty, Neelesh Misra (Woh Lamhe)</div>
+    <div id="visualizer12" class="visualizer-container">
+      <canvas></canvas>
+    </div>
+  </div>
+
+  <div class="card">
+    <audio id="audio13" src="songs/Hairat   Anjaana Anjaani   Lucky Ali.mp3"></audio>
+    <button onclick="playClip('audio13', 'visualizer13')">▶️ Play Clip</button>
+    <button onclick="revealAnswer('answer13')">Reveal Answer</button>
+    <div id="answer13" class="answer">Hairat - Anjaana Anjaani (Lucky Ali)</div>
+    <div id="visualizer13" class="visualizer-container">
+      <canvas></canvas>
+    </div>
+  </div>
+
+  <div class="card">
+    <audio id="audio14" src="songs/Yun Hi Chala Chal Lyrical Video  Swades  A.R. Rahman  Javed Akhtar  Udit Narayan  Shahrukh Khan.mp3"></audio>
+    <button onclick="playClip('audio14', 'visualizer14')">▶️ Play Clip</button>
+    <button onclick="revealAnswer('answer14')">Reveal Answer</button>
+    <div id="answer14" class="answer">Yun Hi Chala Chal - Swades (A.R. Rahman, Javed Akhtar, Udit Narayan, Shahrukh Khan)</div>
+    <div id="visualizer14" class="visualizer-container">
+      <canvas></canvas>
+    </div>
+  </div>
+
+  <div class="card">
+    <audio id="audio15" src="songs/Aadat Se Majboor.mp3"></audio>
+    <button onclick="playClip('audio15', 'visualizer15')">▶️ Play Clip</button>
+    <button onclick="revealAnswer('answer15')">Reveal Answer</button>
+    <div id="answer15" class="answer">Aadat Se Majboor</div>
+    <div id="visualizer15" class="visualizer-container">
+      <canvas></canvas>
+    </div>
+  </div>
+
+  <div class="card">
+    <audio id="audio16" src="songs/Aashiq Banaya Aapne Title Song  Lyrical Video.mp3"></audio>
+    <button onclick="playClip('audio16', 'visualizer16')">▶️ Play Clip</button>
+    <button onclick="revealAnswer('answer16')">Reveal Answer</button>
+    <div id="answer16" class="answer">Aashiq Banaya Aapne Title Song</div>
+    <div id="visualizer16" class="visualizer-container">
+      <canvas></canvas>
+    </div>
+  </div>
+
+  <div class="card">
+    <audio id="audio17" src="songs/Mere Samne Wali Khidki Mein - Padosan - Saira Banu, Sunil Dutt & Kishore Kumar - Old Hindi Songs.mp3"></audio>
+    <button onclick="playClip('audio17', 'visualizer17')">▶️ Play Clip</button>
+    <button onclick="revealAnswer('answer17')">Reveal Answer</button>
+    <div id="answer17" class="answer">Mere Samne Wali Khidki Mein - Padosan (Saira Banu, Sunil Dutt & Kishore Kumar)</div>
+    <div id="visualizer17" class="visualizer-container">
+      <canvas></canvas>
+    </div>
+  </div>
+
+  <script>
+    // Audio context and analyzer variables
+    let audioContext;
+    let analyzer;
+    let currentAudio = null;
+    let currentVisualizer = null;
+    let animationFrame = null;
+    
+    // Initialize audio context (on first user interaction to comply with browser policies)
+    function initAudioContext() {
+      if (!audioContext) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      }
+    }
+
+    function playClip(audioId, visualizerId) {
+      initAudioContext();
+      
+      // Stop any currently playing audio
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        document.getElementById(currentVisualizer).style.display = 'none';
+        cancelAnimationFrame(animationFrame);
+      }
+      
+      // Set up new audio
+      const audio = document.getElementById(audioId);
+      const visualizerContainer = document.getElementById(visualizerId);
+      const canvas = visualizerContainer.querySelector('canvas');
+      const canvasCtx = canvas.getContext('2d');
+      
+      // Set current audio and visualizer
+      currentAudio = audio;
+      currentVisualizer = visualizerId;
+      
+      // Show visualizer
+      visualizerContainer.style.display = 'block';
+      
+      // Set canvas dimensions
+      canvas.width = visualizerContainer.clientWidth;
+      canvas.height = visualizerContainer.clientHeight;
+      
+      // Connect audio to analyzer
+      const source = audioContext.createMediaElementSource(audio);
+      analyzer = audioContext.createAnalyser();
+      analyzer.fftSize = 256;
+      source.connect(analyzer);
+      analyzer.connect(audioContext.destination);
+      
+      // Play audio
+      audio.currentTime = 0;
+      audio.play();
+      
+      // Set timeout to stop after 30 seconds
+      setTimeout(() => {
+        if (currentAudio === audio) {
+          audio.stop();
+          visualizerContainer.style.display = 'none';
+          cancelAnimationFrame(animationFrame);
+          currentAudio = null;
+        }
+      }, 30000);
+      
+      // Start visualizer
+      visualize();
+      
+      function visualize() {
+        // Get frequency data
+        const bufferLength = analyzer.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
+        analyzer.getByteFrequencyData(dataArray);
+        
+        // Clear canvas
+        canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Draw visualizer
+        const barWidth = canvas.width / bufferLength * 2.5;
+        let x = 0;
+        
+        for (let i = 0; i < bufferLength; i++) {
+          const barHeight = dataArray[i] / 255 * canvas.height;
+          
+          // Create gradient color based on frequency
+          const hue = (i / bufferLength) * 360;
+          canvasCtx.fillStyle = `hsl(${hue}, 100%, 50%)`;
+          
+          canvasCtx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
+          
+          x += barWidth + 1;
+        }
+        
+        // Continue animation loop
+        animationFrame = requestAnimationFrame(visualize);
+      }
+    }
+
+    function revealAnswer(id) {
+      document.getElementById(id).style.display = 'block';
+    }
+    
+    // Fix for Safari and mobile browsers
+    document.addEventListener('click', initAudioContext, { once: true });
+  </script>
+
+</body>
+</html>
